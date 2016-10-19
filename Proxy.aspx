@@ -1,1 +1,1 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Proxy.aspx.cs" Inherits="Proxy._Proxy" % >
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Proxy.aspx.cs" Inherits="Proxy._Proxy" %>
