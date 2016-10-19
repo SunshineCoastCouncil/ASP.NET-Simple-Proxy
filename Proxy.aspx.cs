@@ -27,9 +27,16 @@ namespace Proxy
                 {
                     string contentType = response.ContentType;
                     Stream content = response.GetResponseStream();
-                    StreamReader contentReader = new StreamReader(content);
+                    BinaryReader contentReader = new BinaryReader(content);
                     Response.ContentType = contentType;
-                    Response.Write(contentReader.ReadToEnd());
+
+                    int bytesRead;
+                    do
+                    {
+                        byte[] buffer = contentReader.ReadBytes(4096);
+                        bytesRead = buffer.Length;
+                        Response.BinaryWrite(buffer);
+                    } while (bytesRead == 4096);
                 }
             }
         }
